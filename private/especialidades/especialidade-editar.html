@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Editar Especialidade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Arquivo CSS externo -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 1;
+            padding: 1;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #007bff; /* Azul para o fundo */
+            color: #fefefe; /* Texto branco */
+            padding: 10px 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fefefe;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .navbar {
+            border-radius: 100px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #333 !important; /* Texto preto */
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00 !important; /* Cor de destaque no hover */
+        }
+
+        .search-bar input {
+            padding: 5px 10px;
+            border-radius: 50px;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 767px) {
+            .navbar-nav {
+                text-align: center;
+                display: block;
+                width: 100%;
+            }
+
+            .navbar-nav .nav-item {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            .search-bar {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .search-bar input {
+                width: 80%; /* Ajusta a largura da pesquisa em telas pequenas */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Cabeçalho -->
+<header>
+    <div class="logo">
+        Clínica Médica Nova Esperança
+    </div>
+
+    <!-- Barra de navegação -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/index.html"><i class="fas fa-home"></i>Home</a>
+                </li>
+
+                <!-- Consultas -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="consultasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-calendar-check"></i> Consultas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="consultasDropdown">
+                        <!-- Link para a página de cadastro -->
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/consultas/consulta-cadastrar.html">Cadastro</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/consultas/consulta-listagem.html">Listagem</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/consultas/consulta-editar.html">Editar</a>
+                    </div>
+                </li>
+
+                <!-- Pacientes -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="pacientesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-injured"></i> Pacientes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="pacientesDropdown">
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/pacientes/paciente-cadastrar.html">Cadastro</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/pacientes/paciente-listagem.html">Listagem</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/pacientes/paciente-editar.html">Editar</a>
+                    </div>
+                </li>
+
+                <!-- Perfis -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="perfisDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-md"></i> Perfis
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="perfisDropdown">
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/perfis/perfil-cadastrar.html">Cadastro</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/perfis/perfil-listagem.html">Listagem</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/perfis/perfil-editar.html">Editar</a>
+                    </div>
+                </li>
+
+                <!-- Funcionários -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="funcionariosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-users"></i> Funcionários
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="funcionariosDropdown">
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/funcionarios/funcionario-cadastrar.html">Cadastro</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/funcionarios/funcionario-listagem.html">Listagem</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/funcionarios/funcionario-editar.html">Editar</a>
+                    </div>
+                </li>
+
+                <!-- Especializações -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="especializacoesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-cogs"></i> Especializações
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="especializacoesDropdown">
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/especialidades/especialidade-cadastrar.html">Cadastro</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/especialidades/especialidade-listagem.html">Listagem</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/especialidades/especialidade-editar.html">Editar</a>
+                    </div>
+                </li>
+
+                <!-- Convênios -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="conveniosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-hand-holding-medical"></i> Convênios
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="conveniosDropdown">
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/convenios/convenio-cadastrar.html">Cadastro</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/convenios/convenio-listagem.html">Listagem</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/convenios/convenio-editar.html">Editar</a>
+                    </div>
+                </li>
+
+                <!-- Prontuário -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="prontuarioDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-notes-medical"></i> Prontuário
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="prontuarioDropdown">
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/prontuario/prontuario-cadastrar.html">Cadastro</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/prontuario/prontuario-listagem.html">Listagem</a>
+                        <a class="dropdown-item" href="http://localhost:63342/CADASTRO_MEDICO/CADASTRO_MEDICO/private/prontuario/prontuario-editar.html">Editar</a>
+                    </div>
+                </li>
+
+                <!-- Contato -->
+                <li><a class="nav-link" href="#contato"><i class="fas fa-envelope"></i> Contato</a></li>
+
+                <!-- Sair -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                </li>
+            </ul>
+
+            <!-- Barra de Pesquisa -->
+            <form class="form-inline search-bar">
+                <input class="form-control" type="text" placeholder="Pesquisar...">
+            </form>
+
+        </div>
+    </nav>
+</header>
+
+</nav><!-- Contêiner de alertas -->
+<div class="container mt-3">
+    <div class="alert alert-success" id="alert-success" role="alert">
+        Operação realizada com sucesso!
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="alert alert-danger" id="alert-error" role="alert">
+        Ocorreu um erro. Tente novamente.
+        <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+<div class="container mt-5">
+    <h2>Editar Especialidade</h2>
+    <form>
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input class="form-control" id="id" placeholder="ID da especialidade" readonly type="text">
+        </div>
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input class="form-control" id="nome" placeholder="Digite o nome da especialidade" type="text">
+        </div>
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea class="form-control" id="descricao" placeholder="Digite a descrição da especialidade"
+                      rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Salvar</button>
+        <button class="btn btn-secondary" type="reset">Cancelar</button>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

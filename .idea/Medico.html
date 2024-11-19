@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Médico - Clínica Médica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Ícones -->
+    <style>
+        body {
+            background-image: url(fotomedico.webp); /* Caminho relativo */
+            background-size: cover; /* Faz a imagem cobrir toda a tela */
+            background-repeat: no-repeat; /* Evita repetição da imagem */
+            background-position: center; /* Centraliza a imagem */
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: #007bff; /* Azul claro */
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .container-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px); /* Efeito de desfoque */
+            opacity: 0.9; /* Leve transparência */
+        }
+        h2 {
+            color: #007bff; /* Azul claro */
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #007bff; /* Azul claro */
+            border-color: #007bff; /* Azul claro */
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Azul mais escuro para hover */
+        }
+        footer {
+            background-color: #007bff; /* Azul claro */
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<!-- Barra de navegação -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Clínica Médica</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Conteúdo principal -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="container-form">
+                <h2>Cadastro de Médico</h2>
+                <form id="medicoForm" onsubmit="return validarFormulario()">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome do Médico</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Digite o nome do médico" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Digite o email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="crm" class="form-label">CRM</label>
+                        <input type="text" class="form-control" id="crm" placeholder="Digite o número do CRM" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="especializacao" class="form-label">Especialização</label>
+                        <select class="form-select" id="especializacao" required>
+                            <option value="">Selecione uma especialização</option>
+                            <option value="Cardiologia">Cardiologia</option>
+                            <option value="Pediatria">Pediatria</option>
+                            <option value="Dermatologia">Dermatologia</option>
+                            <option value="Ortopedia">Ortopedia</option>
+                            <option value="Neurologia">Neurologia</option>
+                            <option value="Ginecologia">Ginecologia</option>
+                            <option value="Oftalmologia">Oftalmologia</option>
+                            <option value="Psiquiatria">Psiquiatria</option>
+                            <option value="Endocrinologia">Endocrinologia</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+                </form>
+
+                <!-- Alertas -->
+                <div id="alertErro" class="alert alert-danger mt-3 d-none" role="alert" aria-live="assertive">
+                    <i class="fas fa-exclamation-circle"></i> Preencha todos os campos obrigatórios!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Sucesso -->
+<div class="modal fade" id="modalSucesso" tabindex="-1" aria-labelledby="modalSucessoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalSucessoLabel">Cadastro Realizado com Sucesso</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                O médico foi cadastrado com sucesso!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Rodapé -->
+<footer>
+    <p>&copy; 2024 Clínica Médica - Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    function validarFormulario() {
+        // Captura os valores dos campos
+        var nome = document.getElementById("nome").value;
+        var email = document.getElementById("email").value;
+        var crm = document.getElementById("crm").value;
+        var especializacao = document.getElementById("especializacao").value;
+
+        // Referência aos elementos de alerta
+        var alertErro = document.getElementById("alertErro");
+
+        // Verifica se todos os campos estão preenchidos
+        if (nome === "" || email === "" || crm === "" || especializacao === "") {
+            // Exibe o alerta de erro
+            alertErro.classList.remove("d-none");
+            return false; // Impede o envio do formulário
+        } else {
+            // Exibe o modal de sucesso
+            var modalSucesso = new bootstrap.Modal(document.getElementById('modalSucesso'));
+            modalSucesso.show();
+
+            // Limpa o formulário
+            document.getElementById("medicoForm").reset();
+            return false; // Impede o reload da página
+        }
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
